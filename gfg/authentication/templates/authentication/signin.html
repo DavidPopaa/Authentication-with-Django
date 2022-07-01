@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignIn</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #wlc-sgnin{
+            position: absolute;
+            bottom: 600px;
+            color:green;
+            text-shadow: 0.3px 0.3px green;
+            font-family: 'Roboto', sans-serif;
+        }
+        form{
+            position: absolute;
+            bottom: 240px;
+        }
+        #username-label{
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            margin: 20px 10px;
+        }
+        #password-label{
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            margin: 30px 10px;
+        }
+        #pass1{
+            padding: 15px 30px;
+            box-shadow: 1.2px 1.2px 1.2px grey;
+            border-radius: 40px;
+            border: none;
+            margin: 30px 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+        }
+        #username{
+            padding: 15px 30px;
+            box-shadow: 1.2px 1.2px 1.2px grey;
+            border-radius: 40px;
+            border: none;
+            margin: 30px 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+        }
+        ::placeholder{
+            color: black;
+            opacity: 0.6;
+        }
+        #sgnIn-btn{
+            position: absolute;
+            padding: 15px 30px;
+            box-shadow: 1.2px 1.2px 1.2px grey;
+            border-radius: 40px;
+            border: none;
+            color: green;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            left: 35%;
+            right: 35%;
+            bottom: -100px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1 id="wlc-sgnin">Sign In</h1>
+    <form action="/signin/" method="post">
+        {% csrf_token %}
+        <label for="" id="username-label">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your Username" required><br>
+
+        <label for="" id="password-label">Password</label>
+        <input type="password" id="pass1" name="pass1" placeholder="Enter your Password" required><br>
+
+        <button type="submit" id="sgnIn-btn">Sign In</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+       body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       }
+       #wlcm-msg{
+        position: absolute;
+        bottom: 600px;
+        color:green;
+        text-shadow: 0.5px 0.5px green;
+        font-family: 'Roboto', sans-serif;
+       }
+       #sgnin-btn{
+        position: absolute;
+        bottom: 300px;
+        padding: 15px 30px;
+        box-shadow: 1.2px 1.2px 1.2px grey;
+        border-radius: 40px;
+        border: none;
+       }
+       #sgnup-btn{
+        position: absolute;
+        bottom: 200px;
+        padding: 15px 30px;
+        box-shadow: 0.5px 0.5px 0.5px grey;
+        border-radius: 40px;
+        border: none;
+       }
+       a{
+        text-decoration: none;
+        color: green;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+       }
+       #err-msg{
+        position: absolute;
+        bottom: 450px;
+       }
+       #m{
+        font-family: 'Roboto', sans-serif;
+        color: black;
+       }
+       #err-msg{
+        font-family: 'Roboto', sans-serif;
+        color: black;
+       }
+       #f{
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        position: absolute;
+        bottom: 450px;
+       }
+       #g{
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        position: absolute;
+        bottom: 400px;
+       }
+       #bb{
+        position: absolute;
+        bottom: 300px;
+        padding: 15px 30px;
+        border-radius: 40px;
+        border: none;
+        box-shadow: 1.2px 1.2px 1.2px grey;
+       }
+       
+    </style>
+</head>
+<body>
+    {% csrf_token %}
+    {% for message in messages %}
+
+    <div id="err-msg" class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong id="m">Message:</strong>  <strong id="er-msg">{{ message }}</strong>
+        {% comment %} <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+        <span aria-hidden="true">&times;</span> {% endcomment %}
+        </div>
+    {% endfor %}
+
+    <h1 id="wlcm-msg">Welcome, if you have already an account sign in, else go to create one and sign up</h1>
+
+    {% if user.is_authenticated %}
+    <h1 id="f">Hello {{ fname }}</h1>
+    <h1 id="g">You're succesfully loged in </h1>
+    <button type="submit" id="bb"> <a href="/signout"> SignOut</button>
+
+    {% else %}
+    <button type="submit" id="sgnup-btn"> <a href="/signup"> SignUp</button>
+    <button type="submit" id="sgnin-btn"> <a href="/signin"> SignIn</button>
+    {% endif %}
+   
+</body>
+</html>

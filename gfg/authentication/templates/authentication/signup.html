@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            position: absolute;
+            bottom: 90px;
+        }
+        input{
+            padding: 10px 20px;
+            box-shadow: 1.2px 1.2px 1.2px grey;
+            border-radius: 40px;
+            border: none;
+            margin: 23px 10px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+        }
+        #wlcm-sgnup{
+            position: absolute;
+            bottom: 650px;
+            color:green;
+            text-shadow: 0.3px 0.3px green;
+            font-family: 'Roboto', sans-serif;
+        }
+        label{
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            margin: 30px 10px;
+        }
+        #btn-sgnup{
+            position: absolute;
+            padding: 15px 30px;
+            box-shadow: 1.2px 1.2px 1.2px grey;
+            border-radius: 40px;
+            border: none;
+            color: green;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            left: 35%;
+            right: 35%;
+            bottom: -70px
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1 id="wlcm-sgnup">Sign Up</h1>
+    <form action="/signup/" method="post">
+        {% csrf_token %}
+        <label for="">Username</label>
+        <input type="text" id="username" name="username" placeholder="Create a username" required><br>
+
+        <label for="">First Name</label>
+        <input type="text" id="fname" class="input" name="fname" placeholder="Emter your first name" required><br>
+
+        <label for="">Last Name</label>
+        <input type="text" id="lname" class="input" name="lname" placeholder="Enter your last name" required><br>
+
+        <label for="">Email Adress</label>
+        <input type="email" id="email" class="input" name="email" placeholder="Enter your email adress" required><br>
+
+        <label for="">Password</label>
+        <input type="password" id="pass1" class="input" name="pass1" placeholder="Create a Password" required><br>
+
+        <label for="">Confirm Yout password</label>
+        <input type="password" id="pass2" class="input" name="pass2" placeholder="Confirm your Password" required><br>
+
+        <button type="submit" id="btn-sgnup">Sign Up</button>
+    </form>
+</body>
+</html>
